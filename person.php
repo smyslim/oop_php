@@ -19,10 +19,6 @@ class Person{
 	public function getAge(){return $this->age;}
 	public function getMother(){return $this->mother;}
 	public function getFather(){return $this->father;}
-	public function getFatherFather(){return $this->getFather()->getFather()->getName();}
-	public function getFatherMother(){return $this->getFather()->getMother()->getName();}
-	public function getMotherFather(){return $this->getMother()->getFather()->getName();}
-	public function getMotherMother(){return $this->getMother()->getMother()->getName();}
 	public function getInfo(){
 		return "
 		  Меня зовут ".$this->name."<br>
@@ -30,8 +26,8 @@ class Person{
 		  Моего папу зовут ".$this->father->name."<br>
 		  Мою бабушку по отцу зовут: ".$this->father->mother->name."<br>
 		  Моего дедушку по отцу зовут: ".$this->father->father->name."<br>
-		  Мою бабушку по матери зовут:".$this->getMotherMother()."<br>
-		  Моего дедушку по матери зовут: ".$this->getMotherFather();
+		  Мою бабушку по матери зовут:".$this->getMother()->getMother()->getName()."<br>
+		  Моего дедушку по матери зовут: ".$this->getMother()->getFather()->getName();
 	}
 }
 $maria = new Person("Мария","Иванова",60);
